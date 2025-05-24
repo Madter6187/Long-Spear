@@ -1,0 +1,283 @@
+[gd_scene load_steps=5 format=3 uid="uid://p7kos034dgq1"]
+
+[ext_resource type="Script" uid="uid://bxhvdx7qxi61n" path="res://Script/died_screen.gd" id="1_dy8f2"]
+[ext_resource type="Texture2D" uid="uid://dm0lpyikf51c8" path="res://Image/Ahahaha.png" id="1_ftqf2"]
+[ext_resource type="FontFile" uid="uid://dcr2mkq016cu7" path="res://Font/Kodchasan-Medium.ttf" id="2_kw3sn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dy8f2"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.144063, 0.144063, 0.144062, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+corner_detail = 11
+
+[node name="died" type="CanvasLayer"]
+script = ExtResource("1_dy8f2")
+
+[node name="dimmer" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1151.0
+offset_top = -648.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.490196)
+
+[node name="ahhaha" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -693.0
+offset_top = -508.0
+offset_right = -453.0
+offset_bottom = -268.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(110, 110)
+texture = ExtResource("1_ftqf2")
+
+[node name="Die" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -712.0
+offset_top = -620.0
+offset_right = -444.0
+offset_bottom = -482.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(134, 69)
+theme_override_fonts/font = ExtResource("2_kw3sn")
+theme_override_font_sizes/font_size = 100
+text = "ตาย"
+horizontal_alignment = 1
+
+[node name="Restart" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -596.0
+offset_top = -233.0
+offset_right = -556.0
+offset_bottom = -193.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Panel" type="Panel" parent="Restart"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -28.0
+offset_right = 160.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dy8f2")
+
+[node name="Label" type="Label" parent="Restart"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.0
+offset_top = -24.5
+offset_right = 57.0
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_kw3sn")
+theme_override_font_sizes/font_size = 30
+text = "เริ่มใหม่"
+vertical_alignment = 2
+
+[node name="restart" type="Button" parent="Restart"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -28.0
+offset_right = 160.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("2_kw3sn")
+theme_override_font_sizes/font_size = 37
+flat = true
+language = "th_TH"
+
+[node name="TextureButton" type="TextureButton" parent="Restart"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MainMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -596.0
+offset_top = -161.0
+offset_right = -556.0
+offset_bottom = -121.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Panel" type="Panel" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -28.0
+offset_right = 160.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dy8f2")
+
+[node name="Label" type="Label" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.0
+offset_top = -24.5
+offset_right = 57.0
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_kw3sn")
+theme_override_font_sizes/font_size = 30
+text = "เมนูหลัก"
+vertical_alignment = 1
+
+[node name="mainmenu" type="Button" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -28.0
+offset_right = 160.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("2_kw3sn")
+theme_override_font_sizes/font_size = 37
+flat = true
+language = "th_TH"
+
+[node name="Exit" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -596.0
+offset_top = -89.0
+offset_right = -556.0
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Panel" type="Panel" parent="Exit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -28.0
+offset_right = 160.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dy8f2")
+
+[node name="Label" type="Label" parent="Exit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.0
+offset_top = -24.5
+offset_right = 57.0
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_kw3sn")
+theme_override_font_sizes/font_size = 30
+text = "ออกเกม"
+vertical_alignment = 1
+
+[node name="exit" type="Button" parent="Exit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -28.0
+offset_right = 160.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("2_kw3sn")
+theme_override_font_sizes/font_size = 37
+flat = true
+language = "th_TH"
+
+[connection signal="pressed" from="Restart/restart" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MainMenu/mainmenu" to="." method="_on_mainmenu_pressed"]
+[connection signal="pressed" from="Exit/exit" to="." method="_on_exit_pressed"]

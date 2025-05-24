@@ -1,0 +1,336 @@
+[gd_scene load_steps=19 format=3 uid="uid://bcvjfkwudiami"]
+
+[ext_resource type="Script" uid="uid://dm0nmtgq0usoo" path="res://Script/enemy.gd" id="1_hti8k"]
+[ext_resource type="Shader" uid="uid://nieju4rropbv" path="res://Shaders/enemy.gdshader" id="2_44hyy"]
+[ext_resource type="SpriteFrames" uid="uid://d32fil1wsd3ap" path="res://Tilemap/newplayer.tres" id="3_0qcj2"]
+[ext_resource type="Texture2D" uid="uid://dde8swtnowde2" path="res://Weapons/Spear.png" id="4_5op34"]
+[ext_resource type="AudioStream" uid="uid://blwbxda4fpd6f" path="res://SFX/Minecraft Hurt.mp3" id="5_r6llc"]
+[ext_resource type="AudioStream" uid="uid://b1ngjlwm25km0" path="res://SFX/disappear-scream.mp3" id="6_00taw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7k104"]
+size = Vector2(24, 23)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4gyqm"]
+radius = 6.0
+height = 24.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hb8ge"]
+resource_local_to_scene = true
+shader = ExtResource("2_44hyy")
+shader_parameter/hit_color = Color(1, 1, 1, 1)
+shader_parameter/hit_on = false
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qi2p4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3yqyl"]
+size = Vector2(61, 3)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wujgv"]
+radius = 1.5
+
+[sub_resource type="Animation" id="Animation_3yqyl"]
+resource_name = "Hit"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hurt:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("animia:use_parent_material")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("animia:material:shader_parameter/hit_on")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("animia:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.215686, 0.215686, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_iifgy"]
+resource_name = "Iframe"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("animia:use_parent_material")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("animia:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0.215686, 0.215686, 0.196078), Color(1, 0.215686, 0.215686, 0.686275), Color(1, 0.215686, 0.215686, 0.196078), Color(1, 0.215686, 0.215686, 0.686275), Color(1, 0.215686, 0.215686, 0.196078), Color(1, 0.215686, 0.215686, 0.686275)]
+}
+
+[sub_resource type="Animation" id="Animation_qi2p4"]
+resource_name = "Normal"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("animia:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.215686, 0.215686, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("animia:use_parent_material")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("animia:material:shader_parameter/hit_on")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_epg4t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hurt:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("animia:use_parent_material")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("animia:material:shader_parameter/hit_on")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("animia:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.215686, 0.215686, 0.196078)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("dead:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_e1ltt"]
+resource_name = "dead"
+length = 1.4
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dead:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("animia:use_parent_material")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("animia:material:shader_parameter/hit_on")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3yqyl"]
+_data = {
+&"Hit": SubResource("Animation_3yqyl"),
+&"Iframe": SubResource("Animation_iifgy"),
+&"Normal": SubResource("Animation_qi2p4"),
+&"RESET": SubResource("Animation_epg4t"),
+&"dead": SubResource("Animation_e1ltt")
+}
+
+[node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_hti8k")
+
+[node name="bodycolli" type="CollisionShape2D" parent="."]
+position = Vector2(0, -11.5)
+shape = SubResource("RectangleShape2D_7k104")
+
+[node name="headcolli" type="CollisionShape2D" parent="."]
+position = Vector2(0, -23)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_4gyqm")
+
+[node name="animia" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(1, 0.215686, 0.215686, 0.196078)
+material = SubResource("ShaderMaterial_hb8ge")
+position = Vector2(0, -16)
+sprite_frames = ExtResource("3_0qcj2")
+animation = &"Walk"
+flip_h = true
+
+[node name="spear" type="Sprite2D" parent="."]
+position = Vector2(0, -12)
+scale = Vector2(1.2, 1)
+texture = ExtResource("4_5op34")
+offset = Vector2(-44, 0)
+flip_h = true
+
+[node name="hitcast" type="ShapeCast2D" parent="spear"]
+position = Vector2(-60, 0)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("CapsuleShape2D_qi2p4")
+target_position = Vector2(-26, 0)
+collision_mask = 4
+
+[node name="StaticBody2D" type="StaticBody2D" parent="spear"]
+collision_layer = 0
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spear/StaticBody2D"]
+position = Vector2(-42.5, 0)
+shape = SubResource("RectangleShape2D_3yqyl")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="spear/StaticBody2D"]
+position = Vector2(-73, 0)
+shape = SubResource("CircleShape2D_wujgv")
+
+[node name="enemyfx" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_3yqyl")
+}
+
+[node name="navigger" type="NavigationAgent2D" parent="."]
+simplify_path = true
+
+[node name="hurt" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_r6llc")
+volume_db = -11.0
+mix_target = 2
+
+[node name="dead" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_00taw")
+volume_db = -15.0
+mix_target = 2
+
+[node name="diecooldown" type="Timer" parent="."]
+wait_time = 1.2
+one_shot = true
+
+[connection signal="animation_finished" from="enemyfx" to="." method="_on_anim_animation_finished"]
+[connection signal="timeout" from="diecooldown" to="." method="_on_diecooldown_timeout"]

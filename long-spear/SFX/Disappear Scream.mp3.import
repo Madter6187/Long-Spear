@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://nmwe4f5pmspy"
+path="res://.godot/imported/Disappear Scream.mp3-47a69af005fe9d07cfa433e34cb7267e.mp3str"
+
+[deps]
+
+source_file="res://SFX/Disappear Scream.mp3"
+dest_files=["res://.godot/imported/Disappear Scream.mp3-47a69af005fe9d07cfa433e34cb7267e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

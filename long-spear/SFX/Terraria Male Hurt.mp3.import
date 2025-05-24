@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://hx1sn0k8hcwe"
+path="res://.godot/imported/Terraria Male Hurt.mp3-fc0c5b9f58555cbd269cfd3747e99f73.mp3str"
+
+[deps]
+
+source_file="res://SFX/Terraria Male Hurt.mp3"
+dest_files=["res://.godot/imported/Terraria Male Hurt.mp3-fc0c5b9f58555cbd269cfd3747e99f73.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

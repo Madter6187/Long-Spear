@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://js85hy22fgkn"]
+
+[ext_resource type="Script" uid="uid://dbu1a4x23ovl8" path="res://Script/box.gd" id="1_xcwnv"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_oyhfb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2tbl"]
+size = Vector2(15, 15)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g2tbl"]
+radius = 13.0
+
+[node name="box" type="RigidBody2D"]
+mass = 0.005
+script = ExtResource("1_xcwnv")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+scale = Vector2(15, 15)
+mesh = SubResource("QuadMesh_oyhfb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_g2tbl")
+
+[node name="hurtarea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="hurtcolli" type="CollisionShape2D" parent="hurtarea"]
+shape = SubResource("CircleShape2D_g2tbl")
+debug_color = Color(0.513351, 0.425232, 0.99188, 0.42)
+
+[connection signal="mouse_entered" from="hurtarea" to="." method="_on_hurtarea_mouse_entered"]

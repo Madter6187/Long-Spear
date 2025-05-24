@@ -1,0 +1,161 @@
+[gd_scene load_steps=16 format=3 uid="uid://bhukvrke2q7ps"]
+
+[ext_resource type="Texture2D" uid="uid://bj0amkrkpfx37" path="res://Sprites/Idle.png" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://dn3ot3onnf0rs" path="res://Script/player.gd" id="1_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://dosly808yxke3" path="res://Sprites/Walk.png" id="2_onrkg"]
+[ext_resource type="PackedScene" uid="uid://7opgls6na22s" path="res://Scene/spear.tscn" id="4_hqtel"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
+atlas = ExtResource("1_4flbx")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3pqv"]
+atlas = ExtResource("1_4flbx")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqtel"]
+atlas = ExtResource("1_4flbx")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sweqy"]
+atlas = ExtResource("1_4flbx")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hs0m"]
+atlas = ExtResource("2_onrkg")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jxqw"]
+atlas = ExtResource("2_onrkg")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2hs0m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onrkg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3pqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqtel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sweqy")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hs0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jxqw")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1jxqw"]
+size = Vector2(24, 23)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dw050"]
+radius = 6.0
+height = 24.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sweqy"]
+radius = 12.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_hqtel"]
+line_spacing = -4.935
+font_size = 13
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("pivot") groups=["Player"]]
+script = ExtResource("1_i3pqv")
+pivot = NodePath("Pivot")
+
+[node name="Anima" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_2hs0m")
+animation = &"Idle"
+frame_progress = 0.589424
+
+[node name="BodyColli" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -11.5)
+shape = SubResource("RectangleShape2D_1jxqw")
+
+[node name="HeadColli" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -23)
+rotation = 4.71239
+shape = SubResource("CapsuleShape2D_dw050")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, -50)
+zoom = Vector2(3, 3)
+
+[node name="Pivot" type="Marker2D" parent="."]
+position = Vector2(0, -42)
+
+[node name="pivott" type="PinJoint2D" parent="."]
+position = Vector2(0, -12)
+node_a = NodePath("..")
+node_b = NodePath("../Spear")
+
+[node name="Spear" parent="." instance=ExtResource("4_hqtel")]
+position = Vector2(12, -12)
+angular_velocity = 0.738885
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -12)
+shape = SubResource("CircleShape2D_sweqy")
+disabled = true
+debug_color = Color(0, 0.6, 0.701961, 0)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -165.0
+offset_top = -153.0
+offset_right = -15.0
+offset_bottom = -98.0
+scale = Vector2(0.666009, 0.666009)
+text = "U - incr. grav. to spear
+ J - decr. grav. to spear"
+label_settings = SubResource("LabelSettings_hqtel")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 65.0
+offset_top = -153.0
+offset_right = 234.0
+offset_bottom = -104.0
+scale = Vector2(0.666009, 0.666009)
+text = "  I - incr. mass to spear
+K - decr. mass to spear"
+label_settings = SubResource("LabelSettings_hqtel")
+
+[node name="gravity_current" type="Label" parent="."]
+offset_left = -145.0
+offset_top = -123.0
+offset_right = -105.0
+offset_bottom = -74.0
+scale = Vector2(0.555855, 0.555855)
+text = "0
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="mass_current" type="Label" parent="."]
+offset_left = 101.0
+offset_top = -123.0
+offset_right = 141.0
+offset_bottom = -74.0
+scale = Vector2(0.555855, 0.555855)
+text = "0
+"
+horizontal_alignment = 1
+vertical_alignment = 1

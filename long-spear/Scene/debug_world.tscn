@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://js57m8d557al"]
+
+[ext_resource type="PackedScene" uid="uid://js85hy22fgkn" path="res://Scene/box.tscn" id="2_ppmq8"]
+[ext_resource type="PackedScene" uid="uid://bcvjfkwudiami" path="res://Scene/enemy.tscn" id="3_n16uc"]
+[ext_resource type="PackedScene" uid="uid://bb8h00g4pldsb" path="res://Scene/newplayer.tscn" id="3_nj5k2"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_yv3y5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_spjia"]
+size = Vector2(1, 1.44444)
+
+[sub_resource type="QuadMesh" id="QuadMesh_spjia"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ppmq8"]
+size = Vector2(102, 4)
+
+[node name="Debug World" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 13.5)
+scale = Vector2(400, 27)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D"]
+modulate = Color(0.481789, 0.481789, 0.481789, 1)
+mesh = SubResource("BoxMesh_yv3y5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1.53818e-08, 0.222222)
+shape = SubResource("RectangleShape2D_spjia")
+
+[node name="Windmill" type="RigidBody2D" parent="."]
+position = Vector2(-203, -3)
+collision_mask = 2
+gravity_scale = 0.0
+angular_velocity = -8.72665
+angular_damp_mode = 1
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Windmill"]
+scale = Vector2(102, 4)
+mesh = SubResource("QuadMesh_spjia")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Windmill"]
+rotation = -1.57079
+scale = Vector2(102, 4)
+mesh = SubResource("QuadMesh_spjia")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Windmill"]
+shape = SubResource("RectangleShape2D_ppmq8")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Windmill"]
+rotation = -1.57079
+shape = SubResource("RectangleShape2D_ppmq8")
+
+[node name="box" parent="." instance=ExtResource("2_ppmq8")]
+position = Vector2(187, -17)
+
+[node name="Enemy" parent="." instance=ExtResource("3_n16uc")]
+position = Vector2(115, -19)
+
+[node name="NewPlayer" parent="." instance=ExtResource("3_nj5k2")]
+position = Vector2(-73, -17)
