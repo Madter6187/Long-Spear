@@ -1,0 +1,5 @@
+This is Heart sprite to display Health Point to character.
+
+there is 2 sprites:
+  1.is empty heart named to "EmtyHeart" 
+  2.is full heart  named to "FullHeart"
