@@ -8,3 +8,7 @@ for Background, I get it from itch.io, here the source : https://free-game-asset
 for Tilemap, I get it from Pixel Frog(itch.io), here the source : https://pixelfrog-assets.itch.io/pixel-adventure-1
 
 for Sound effects, you can download it in this repository
+
+
+
+player.tscn and player.gd is not work do not use it
