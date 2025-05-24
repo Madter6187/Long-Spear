@@ -1,8 +1,8 @@
 # Long Spear
 My Game source code
 
-I would not give any artworks, animations or sprites because it is my work and it has copyright and I don't want to get annoying when someone stole my arts.
+for Sprites, I would not give any sprites because it is my work and I don't want to get annoying when someone stole my arts
 
-I use free Background and Sound effects and I give the sources
+for Background, I get it from itch.io, here the source : https://free-game-assets.itch.io/nature-landscapes-free-pixel-art
 
-Background : https://free-game-assets.itch.io/nature-landscapes-free-pixel-art
+for Sound effects, you can download it in this repository
